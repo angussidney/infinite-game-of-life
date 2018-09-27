@@ -156,16 +156,14 @@ def main():
         generate_file(x, y)
         input("Press enter once file is filled out...")
     alive_cells = import_file()
-    x1 = int(input("x1: "))
-    x2 = int(input("x2: "))
-    y1 = int(input("y1: "))
-    y2 = int(input("y2: "))
-    gens = int(input("generations: "))
+    w = int(input("Width of view: "))
+    h = int(input("Height of view: "))
+    gens = int(input("No. of generations: "))
     states = evolve_world(alive_cells, gens)
 
     for state in states:
         print("\033[;H\033[2J")
-        print(represent_world(state, x1, y1, x2, y2))
+        print(represent_world(state, w // -2, h // -2, w // 2, h // 2))
         sleep(0.5)
 
 
